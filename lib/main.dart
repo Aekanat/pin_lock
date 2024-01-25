@@ -38,39 +38,41 @@ class _phoneState extends State<phone> {
   int currentInx = 0;
 
   Widget button({required String num, required String txt}) {
-    return InkWell(
-      onTap: () {
-        setState(() {
-          _code = _code.replaceRange(currentInx, currentInx + 1, num);
-          currentInx++;
-        });
-      },
-      child: Container(
-          margin: EdgeInsets.all(5),
-          width: 40,
-          height: 40,
-          decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                num,
-                style: GoogleFonts.poppins(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.grey,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: InkWell(
+        onTap: () {
+          setState(() {
+            _code = _code.replaceRange(currentInx, currentInx + 1, num);
+            currentInx++;
+          });
+        },
+        child: Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  num,
+                  style: GoogleFonts.poppins(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                  ),
                 ),
-              ),
-              Text(
-                txt,
-                style: GoogleFonts.poppins(
-                  fontSize: 5,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.grey,
-                ),
-              )
-            ],
-          )),
+                Text(
+                  txt,
+                  style: GoogleFonts.poppins(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.grey,
+                  ),
+                )
+              ],
+            )),
+      ),
     );
   }
 
@@ -79,11 +81,11 @@ class _phoneState extends State<phone> {
     return Scaffold(
       body: Center(
         child: Container(
-          margin: EdgeInsets.fromLTRB(0, 40, 0, 30),
-          child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+          margin: EdgeInsets.fromLTRB(0, 60, 0, 50),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Icon(
               Icons.shield_outlined,
-              color: Colors.grey,
+              color: Colors.black,
               size: 60,
             ),
             Text(
@@ -91,11 +93,11 @@ class _phoneState extends State<phone> {
               style: GoogleFonts.poppins(
                 fontSize: 20.0,
                 fontWeight: FontWeight.w700,
-                color: Colors.grey,
+                color: Colors.black,
               ),
             ),
             Spacer(
-              flex: 2,
+              flex: 3,
             ),
             Text(
               _code,
@@ -105,15 +107,18 @@ class _phoneState extends State<phone> {
               ),
             ),
             Spacer(
-              flex: 3,
+              flex: 2,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                button(num: '1', txt: 'one'),
-                button(num: '2', txt: 'two'),
-                button(num: '3', txt: 'three'),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  button(num: '1', txt: 'one'),
+                  button(num: '2', txt: 'two'),
+                  button(num: '3', txt: 'three'),
+                ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -142,9 +147,8 @@ class _phoneState extends State<phone> {
                     });
                   },
                   child: Container(
-                      margin: EdgeInsets.all(5),
-                      width: 40,
-                      height: 40,
+                      width: 60,
+                      height: 60,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -169,9 +173,8 @@ class _phoneState extends State<phone> {
                     });
                   },
                   child: Container(
-                      margin: EdgeInsets.all(5),
-                      width: 40,
-                      height: 40,
+                      width: 60,
+                      height: 60,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
